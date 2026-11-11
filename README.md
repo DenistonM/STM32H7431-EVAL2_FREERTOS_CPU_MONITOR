@@ -2,9 +2,6 @@
 
 A live system-monitor dashboard for the **STM32H743I-EVAL** board, built on **FreeRTOS**. Seven tasks run at different priorities and share data through a queue, a mutex and a semaphore. The 640x480 LCD shows what the RTOS is doing in real time: uptime, CPU load, every task's state and stack use, heap use, inputs, an ADC reading, the LEDs and a system log.
 
-<!-- Add a photo or screenshot of the board running the dashboard: -->
-<!-- ![RTOS Monitor on STM32H743I-EVAL](docs/dashboard.jpg) -->
-
 ## Features
 
 - **CPU load** measured from FreeRTOS run-time statistics, using the Cortex-M7 DWT cycle counter as the timer (100 % minus the time spent in the IDLE task, averaged over 500 ms)
@@ -147,19 +144,6 @@ RTOSMonitor_Multitask/
 | Board freezes in `configASSERT` | A FreeRTOS check failed. Common causes: wrong interrupt priority, or a stack that is too small. |
 | `undefined reference to ...` | Make sure `app_tasks.c`, `dashboard.c` and the FreeRTOS source files are in the build and not excluded. |
 
-## Possible improvements
-
-- Task-wise CPU percentage instead of one total
-- Touchscreen buttons to suspend and resume tasks live
-- A graph of CPU load over time
-- Stack overflow detection hook
-- Logging events over UART
-
-## Licence and credits
-
-- Application code (`app_tasks.c`, `dashboard.c`, headers): add your own licence here (for example MIT).
-- FreeRTOS kernel files are under the MIT licence. See the headers in each file.
-- Files from STMicroelectronics (HAL, BSP, CMSIS, startup and example files) keep their original licences.
 
 ## Author
 
